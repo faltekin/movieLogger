@@ -1,2 +1,34 @@
-package dev.patika.movieLogger.core.dto.request;public class MovieLogUpdateRequest {
+package dev.patika.movieLogger.core.dto.request;
+
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class MovieLogUpdateRequest {
+
+    @NotNull(message = "Log ID cannot be null")
+    private Long id;
+
+    @NotNull(message = "Watch date cannot be null")
+    private LocalDate watchedAt;
+
+    @Min(value = 0, message = "Rating must be between 0 and 10")
+    @Max(value = 10, message = "Rating must be between 0 and 10")
+    private Double rating;
+
+    private String review;
+
+    private Boolean liked;
+    private Boolean isFavorite;
+    private Boolean firstTimeWatched;
+
 }
+

@@ -1,11 +1,13 @@
-package dev.patika.movieLogger.dto.response;
+package dev.patika.movieLogger.core.dto.response;
 
+import dev.patika.movieLogger.core.dto.summary.MovieSummaryResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,12 +20,13 @@ public class PersonResponse {
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
-    private String phoneNumber;
-    private String profilePictureUrl;
-    private String bio;
+    private String biography;
+
     private Integer watchlistCount;
-    private Integer reviewCount;
-    private Integer commentCount;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
+    private List<MovieSummaryResponse> actedMovies;
+    private List<MovieSummaryResponse> crewMovies;
+
+
+
 } 

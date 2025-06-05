@@ -1,6 +1,7 @@
-package dev.patika.movieLogger.dto.request;
+package dev.patika.movieLogger.core.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -17,20 +19,22 @@ public class MovieSaveRequest {
     @NotBlank(message = "Movie title cannot be empty")
     private String title;
 
-    @NotBlank(message = "Movie description cannot be empty")
-    private String description;
-
     @NotNull(message = "Release date cannot be null")
-    private LocalDate releaseDate;
+    private Integer releaseDate;
+
+    @NotBlank(message = "Movie synopsis cannot be empty")
+    private String synopsis;
 
     @Positive(message = "Duration must be positive")
     private Integer durationInMinutes;
 
-    @NotBlank(message = "Genre cannot be empty")
-    private String genre;
+    @NotEmpty
+    private Set<Long> castIds;
+    @NotEmpty
+    private Set<Long> crewIds;
+    @NotEmpty
+    private Set<Long> genreIds;
+    @NotEmpty
+    private Set<Long> serviceIds;
 
-    @NotBlank(message = "Director cannot be empty")
-    private String director;
-
-    private String posterUrl;
 } 

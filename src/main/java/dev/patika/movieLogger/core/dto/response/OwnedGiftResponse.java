@@ -1,2 +1,25 @@
-package dev.patika.movieLogger.core.dto.response;public class OwnedGiftResponse {
+package dev.patika.movieLogger.core.dto.response;
+
+import dev.patika.movieLogger.core.dto.summary.UserSummaryResponse;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class OwnedGiftResponse {
+
+    private Long id;
+
+    private GiftResponse gift;
+
+    private UserSummaryResponse user;
+
+    private Integer quantity;
+
+    private LocalDateTime acquiredAt;
 }
+

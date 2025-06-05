@@ -1,4 +1,4 @@
-package dev.patika.movieLogger.dto.response;
+package dev.patika.movieLogger.core.dto.response;
 
 import dev.patika.movieLogger.entities.enums.AccountStatus;
 import dev.patika.movieLogger.entities.enums.Role;
@@ -19,16 +19,21 @@ public class UserResponse {
     private String email;
     private Integer credits;
     private Role role;
+
     private AccountStatus accountStatus;
     private LocalDateTime signupDate;
     private LocalDateTime lastLogin;
+
     private Boolean isVerified;
     private Boolean isMailNotificationEnabled;
     private Boolean isTwoFactorEnabled;
     private Boolean isReceiveWeeklyDigestEnabled;
+
     private Integer followersCount;
     private Integer followingCount;
     private Integer watchlistCount;
     private Integer commentsCount;
     private Integer achievementsCount;
-} 
+
+
+}

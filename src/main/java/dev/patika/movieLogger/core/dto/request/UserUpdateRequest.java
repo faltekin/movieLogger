@@ -1,10 +1,8 @@
-package dev.patika.movieLogger.dto.request;
+package dev.patika.movieLogger.core.dto.request;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import dev.patika.movieLogger.entities.enums.AccountStatus;
+import dev.patika.movieLogger.entities.enums.Role;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,8 +27,18 @@ public class UserUpdateRequest {
     @Email(message = "Invalid email format")
     private String email;
 
-    @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be 10 digits")
-    private String phoneNumber;
+    @NotNull(message = "Credits cannot be null")
+    @Min(value = 0, message = "Credits cannot be negative")
+    private Integer credits;
+
+    @NotNull(message = "Role cannot be null")
+    private Role role;
+
+    @NotNull(message = "Account status cannot be null")
+    private AccountStatus accountStatus;
+
+    @Size(min = 6, message = "Password must be at least 6 characters")
+    private String password;
 
     private Boolean isMailNotificationEnabled;
     private Boolean isTwoFactorEnabled;

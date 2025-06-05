@@ -1,4 +1,4 @@
-package dev.patika.movieLogger.dto.request;
+package dev.patika.movieLogger.core.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,9 +29,5 @@ public class PersonSaveRequest {
     @NotNull(message = "Birth date cannot be null")
     private LocalDate birthDate;
 
-    @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be 10 digits")
-    private String phoneNumber;
-
-    private String profilePictureUrl;
-    private String bio;
+    private String biography;
 } 
